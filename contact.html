@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-  .contact-panel{ background: var(--field); color: var(--field-ink); border-radius:4px; padding:64px 48px; }
+  .contact-panel{ color: var(--field-ink); border-radius:4px; padding:64px 48px; }
   .contact-panel .eyebrow{ color: var(--rose); }
   .contact-panel .lede{ color: rgba(243,244,246,.65); }
   form{ margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
@@ -22,7 +22,7 @@
     transition:border-color .3s;
   }
   input:focus, select:focus, textarea:focus{ border-color: var(--rose); }
-  select option{ color:#14141a; }
+  select option{ color:#1b1a22; }
   textarea{ resize:vertical; min-height:96px; }
   button[type="submit"]{
     grid-column:1/-1; justify-self:start; margin-top:8px; background:none;
@@ -62,7 +62,7 @@
     <h1>問い合わせ</h1>
   </section>
 
-  <section class="contact-panel" style="margin-bottom:60px;">
+  <section class="contact-panel field-breathe" style="margin-bottom:60px;">
     <p class="lede">ジャケット制作、作品購入、オーダーメイドのご相談など、お気軽にご連絡ください。</p>
 
     <form id="contactForm">
@@ -110,5 +110,6 @@
     status.classList.add('visible');
   });
 </script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

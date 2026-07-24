@@ -12,12 +12,12 @@
   .process-grid{
     display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:40px;
   }
-  .p-item{ position:relative; border-radius:2px; overflow:hidden; background:#e5e6e9; }
+  .p-item{ position:relative; border-radius:2px; overflow:hidden; background: var(--bg-alt); }
   .p-item.tall{ grid-row: span 2; }
   .p-item img, .p-item video{ width:100%; height:100%; object-fit:cover; display:block; }
   .p-tag{
     position:absolute; left:10px; bottom:10px; font-size:10px; letter-spacing:.1em;
-    text-transform:uppercase; background: rgba(11,11,16,0.7); color:#fff;
+    text-transform:uppercase; background: rgba(20,21,43,0.75); color:#fff;
     padding:4px 10px; border-radius:999px;
   }
   @media (max-width: 760px){
@@ -54,22 +54,22 @@
   <!-- 写真は images/, 動画は videos/ に配置し、下記のパスを差し替えてください。
        種類ごとに p-tag のラベル(PHOTO / VIDEO / ROUGH / FAILED)を変更できます。 -->
   <div class="process-grid">
-    <div class="p-item tall" style="background:linear-gradient(160deg,#1b2a3d,#3a5f6e);">
+    <div class="p-item tall" style="background:linear-gradient(160deg,#14152b,#1f2447);">
       <span class="p-tag">Photo</span>
     </div>
-    <div class="p-item" style="background:linear-gradient(120deg,#2c2c34,#54545e);">
+    <div class="p-item" style="background:linear-gradient(120deg,#6b6459,#a89f8e);">
       <span class="p-tag">Rough</span>
     </div>
-    <div class="p-item" style="background:linear-gradient(100deg,#3a2f1e,#b8925c);">
+    <div class="p-item" style="background:linear-gradient(100deg,#5a3540,#a3556a);">
       <span class="p-tag">Failed</span>
     </div>
-    <div class="p-item" style="background:linear-gradient(140deg,#0b0b10,#2c3e50);">
+    <div class="p-item" style="background:linear-gradient(140deg,#0e0f22,#14152b);">
       <span class="p-tag">Video</span>
     </div>
-    <div class="p-item tall" style="background:linear-gradient(160deg,#7a3b47,#f3d4d9);">
+    <div class="p-item tall" style="background:linear-gradient(160deg,#a3556a,#ece4d5);">
       <span class="p-tag">Photo</span>
     </div>
-    <div class="p-item" style="background:linear-gradient(120deg,#123,#245);">
+    <div class="p-item" style="background:linear-gradient(120deg,#1f2447,#3d4576);">
       <span class="p-tag">Rough</span>
     </div>
   </div>
@@ -84,5 +84,6 @@
 <script>
   document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 </script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

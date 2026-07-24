@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <style>
   .hero{
-    background: var(--field); color: var(--field-ink);
+    color: var(--field-ink);
     min-height: 86vh; display:flex; flex-direction:column;
     justify-content:center; align-items:center; text-align:center;
     padding: 80px 24px 60px; position:relative;
@@ -29,7 +29,7 @@
     min-height: 180px; display:flex; flex-direction:column; justify-content:space-between;
     transition: background .3s;
   }
-  .room:hover{ background:#e9eaec; }
+  .room:hover{ background: var(--bg-alt); }
   .room .num{ font-size:11px; letter-spacing:.1em; color:var(--ink-soft); }
   .room h3{ margin:0; }
   .room p{ font-size:13px; color:var(--ink-soft); margin:8px 0 0; line-height:1.7; }
@@ -62,7 +62,7 @@
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero field-breathe">
   <p class="mark">in</p>
   <p class="line1">存在を、描く。</p>
   <p class="line2">まだ名のない震え。</p>
@@ -102,5 +102,6 @@
   animateTremor('t1', 0);
   document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 </script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>
