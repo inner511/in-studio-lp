@@ -4,476 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>in — 存在を、描く。</title>
-<meta name="description" content="in / 存在を、描く。まだ名のない震え。アルバムジャケット制作・作品販売・オーダーメイド制作。">
+<meta name="description" content="in / 存在を、描く。まだ名のない震え。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 <style>
-  :root{
-    --bg: #f3f4f6;
-    --ink: #14141a;
-    --ink-soft: #4a4b55;
-    --line: #6e7b8b;
-    --rose: #b85c6e;
-    --field: #0b0b10;
-    --field-ink: #f3f4f6;
-    --hairline: rgba(20,20,26,0.12);
-    --serif: 'Shippori Mincho', serif;
-    --sans: 'Zen Kaku Gothic New', sans-serif;
-  }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  ::selection{ background: var(--rose); color: #fff; }
-
-  a{ color: inherit; }
-
-  .wrap{
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-
-  /* ---------- Tremor line signature ---------- */
-  .tremor{
-    display:block;
-    width:100%;
-    height: 46px;
-  }
-  .tremor path{
-    fill: none;
-    stroke: var(--line);
-    stroke-width: 1.4;
-    opacity: 0.55;
-  }
-  .tremor.field path{ stroke: var(--field-ink); opacity: 0.35; }
-
-  /* ---------- Hero ---------- */
   .hero{
-    background: var(--field);
-    color: var(--field-ink);
-    min-height: 100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    position: relative;
+    background: var(--field); color: var(--field-ink);
+    min-height: 86vh; display:flex; flex-direction:column;
+    justify-content:center; align-items:center; text-align:center;
+    padding: 80px 24px 60px; position:relative;
   }
-  .hero .mark{
-    font-family: var(--serif);
-    font-size: clamp(64px, 14vw, 132px);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    line-height: 1;
-    margin: 0 0 28px;
-    animation: rise 1.4s cubic-bezier(.16,1,.3,1) both;
-  }
-  .hero .line1{
-    font-family: var(--serif);
-    font-size: clamp(24px, 5vw, 38px);
-    font-weight: 500;
-    margin: 0 0 10px;
-    animation: rise 1.4s .15s cubic-bezier(.16,1,.3,1) both;
-  }
-  .hero .line2{
-    font-size: 14px;
-    letter-spacing: 0.16em;
-    color: rgba(243,244,246,0.55);
-    margin: 0;
-    animation: rise 1.4s .3s cubic-bezier(.16,1,.3,1) both;
-  }
-  @keyframes rise{
-    from{ opacity:0; transform: translateY(18px); }
-    to{ opacity:1; transform: translateY(0); }
-  }
-  .hero .scroll-cue{
-    position: absolute;
-    bottom: 40px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: rgba(243,244,246,0.4);
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .scroll-cue .stem{
-    width: 1px; height: 34px;
-    background: linear-gradient(rgba(243,244,246,0.5), transparent);
-    animation: drift 2.2s ease-in-out infinite;
-  }
-  @keyframes drift{
-    0%,100%{ transform: scaleY(1); opacity:.5; }
-    50%{ transform: scaleY(1.3); opacity:1; }
-  }
+  .hero .mark{ font-family:var(--serif); font-size: clamp(64px,14vw,132px); font-weight:500; margin:0 0 24px; }
+  .hero .line1{ font-family:var(--serif); font-size: clamp(22px,5vw,34px); margin:0 0 8px; }
+  .hero .line2{ font-size:14px; letter-spacing:.16em; color:rgba(243,244,246,.55); margin:0; }
 
-  /* ---------- Section shell ---------- */
-  section{ padding: 96px 0; }
-  .eyebrow{
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    color: var(--rose);
-    text-transform: uppercase;
-    margin: 0 0 18px;
-    font-weight: 500;
+  .rooms{
+    display:grid; grid-template-columns: repeat(4,1fr); gap:1px;
+    background: var(--hairline); border-top:1px solid var(--hairline);
   }
-  h2{
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(28px, 4vw, 40px);
-    line-height: 1.4;
-    margin: 0 0 8px;
+  .room{
+    background: var(--bg); padding: 40px 28px; text-decoration:none; color:var(--ink);
+    min-height: 180px; display:flex; flex-direction:column; justify-content:space-between;
+    transition: background .3s;
   }
-  .lede{
-    color: var(--ink-soft);
-    font-size: 15px;
-    line-height: 1.9;
-    max-width: 560px;
-  }
+  .room:hover{ background:#e9eaec; }
+  .room .num{ font-size:11px; letter-spacing:.1em; color:var(--ink-soft); }
+  .room h3{ margin:0; }
+  .room p{ font-size:13px; color:var(--ink-soft); margin:8px 0 0; line-height:1.7; }
 
-  /* ---------- Philosophy strip ---------- */
-  .philosophy{
-    text-align:center;
-    padding: 80px 0 40px;
-  }
-  .philosophy p{
-    font-family: var(--serif);
-    font-size: clamp(18px, 2.6vw, 24px);
-    line-height: 2.1;
-    max-width: 640px;
-    margin: 0 auto;
-    color: var(--ink);
-  }
+  @media (max-width:900px){ .rooms{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width:520px){ .rooms{ grid-template-columns: 1fr; } }
 
-  /* ---------- Works ---------- */
-  .works-grid{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 14px;
-  }
-  .work{
-    border-radius: 2px;
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1/1;
-  }
-  .work:nth-child(1){ grid-column: span 3; }
-  .work:nth-child(2){ grid-column: span 2; }
-  .work:nth-child(3){ grid-column: span 4; aspect-ratio: 16/10; }
-  .work:nth-child(4){ grid-column: span 3; }
-  .work:nth-child(5){ grid-column: span 3; }
-  .work:nth-child(6){ grid-column: span 2; }
-  .work:nth-child(7){ grid-column: span 4; aspect-ratio: 16/10; }
-
-  .work img{
-    width:100%; height:100%;
-    object-fit: cover;
-    display:block;
-    transition: transform 1.1s cubic-bezier(.16,1,.3,1);
-  }
-  .work:hover img{ transform: scale(1.045); }
-
-  .works-note{
-    margin-top: 22px;
-    font-size: 12px;
-    color: var(--ink-soft);
-    opacity: 0.7;
-  }
-
-  /* ---------- Services ---------- */
-  .service{
-    display:flex;
-    gap: 64px;
-    align-items: flex-start;
-    padding: 56px 0;
-    border-top: 1px solid var(--hairline);
-  }
-  .service:nth-child(even){ flex-direction: row-reverse; text-align: right; }
-  .service:nth-child(even) .lede{ margin-left: auto; }
-  .service-name{
-    font-family: var(--serif);
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    flex: 0 0 160px;
-    padding-top: 4px;
-  }
-  .service-body{ flex: 1; }
-
-  @media (max-width: 720px){
-    .service, .service:nth-child(even){
-      flex-direction: column;
-      text-align: left;
-      gap: 16px;
-    }
-    .service:nth-child(even) .lede{ margin-left: 0; }
-    .works-grid{ grid-template-columns: repeat(2,1fr); }
-    .work:nth-child(n){ grid-column: span 1 !important; aspect-ratio: 1/1 !important; }
-  }
-
-  /* ---------- Contact ---------- */
-  .contact-panel{
-    background: var(--field);
-    color: var(--field-ink);
-    border-radius: 4px;
-    padding: 64px 48px;
-  }
-  .contact-panel .eyebrow{ color: var(--rose); }
-  .contact-panel .lede{ color: rgba(243,244,246,0.65); }
-
-  form{
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  .field{ display:flex; flex-direction: column; gap: 8px; }
-  .field.full{ grid-column: 1 / -1; }
-  label{
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(243,244,246,0.5);
-  }
-  input, select, textarea{
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(243,244,246,0.25);
-    color: var(--field-ink);
-    font-family: var(--sans);
-    font-size: 15px;
-    padding: 10px 2px;
-    outline: none;
-    transition: border-color .3s;
-  }
-  input:focus, select:focus, textarea:focus{ border-color: var(--rose); }
-  select option{ color: #14141a; }
-  textarea{ resize: vertical; min-height: 96px; }
-
-  button[type="submit"]{
-    grid-column: 1 / -1;
-    justify-self: start;
-    margin-top: 8px;
-    background: none;
-    border: 1px solid rgba(243,244,246,0.4);
-    color: var(--field-ink);
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    padding: 14px 32px;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background .3s, color .3s, border-color .3s;
-  }
-  button[type="submit"]:hover{
-    background: var(--rose);
-    border-color: var(--rose);
-    color: #fff;
-  }
-
-  .form-status{
-    grid-column: 1/-1;
-    font-size: 13px;
-    color: rgba(243,244,246,0.7);
-    display:none;
-  }
-  .form-status.visible{ display:block; }
-
-  .direct-mail{
-    margin-top: 28px;
-    font-size: 13px;
-    color: rgba(243,244,246,0.45);
-  }
-  .direct-mail a{ color: rgba(243,244,246,0.75); text-decoration: underline; text-underline-offset: 3px; }
-
-  @media (max-width: 620px){
-    form{ grid-template-columns: 1fr; }
-    .contact-panel{ padding: 48px 24px; }
-  }
-
-  footer{
-    padding: 40px 0 60px;
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    font-size: 12px;
-    color: var(--ink-soft);
-  }
-  footer a{ text-decoration: none; border-bottom: 1px solid var(--hairline); }
-
-  :focus-visible{ outline: 2px solid var(--rose); outline-offset: 2px; }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .philosophy-teaser{ text-align:center; padding: 90px 0; }
+  .philosophy-teaser p{
+    font-family: var(--serif); font-size: clamp(17px,2.4vw,21px); line-height:2.1;
+    max-width: 640px; margin: 0 auto 28px;
   }
 </style>
 </head>
 <body>
 
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html">Commission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
 <section class="hero">
   <p class="mark">in</p>
   <p class="line1">存在を、描く。</p>
   <p class="line2">まだ名のない震え。</p>
-  <div class="scroll-cue"><span>SCROLL</span><span class="stem"></span></div>
 </section>
 
-<svg class="tremor" viewBox="0 0 1080 46" preserveAspectRatio="none">
-  <path id="tremorPath1" d="M0,23 C 90,10 180,36 270,23 C 360,10 450,36 540,23 C 630,10 720,36 810,23 C 900,10 990,36 1080,23" />
+<svg class="tremor" viewBox="0 0 1080 40" preserveAspectRatio="none">
+  <path id="t1" d="M0,20 C90,8 180,32 270,20 C360,8 450,32 540,20 C630,8 720,32 810,20 C900,8 990,32 1080,20"></path>
 </svg>
 
+<nav class="rooms" aria-label="section index">
+  <a class="room" href="about.html"><div><span class="num">01</span><h3>About</h3><p>なぜ描くのか。</p></div></a>
+  <a class="room" href="philosophy.html"><div><span class="num">02</span><h3>Philosophy</h3><p>世界観。「存在」の考え方。</p></div></a>
+  <a class="room" href="works.html"><div><span class="num">03</span><h3>Works</h3><p>作品。年・素材・サイズ・制作時間。</p></div></a>
+  <a class="room" href="process.html"><div><span class="num">04</span><h3>Process</h3><p>制作途中。写真・動画・ラフ・失敗作。</p></div></a>
+  <a class="room" href="journal.html"><div><span class="num">05</span><h3>Journal</h3><p>制作日記。考えていること。散歩。空。</p></div></a>
+  <a class="room" href="library.html"><div><span class="num">06</span><h3>Library</h3><p>影響を受けた本・映画・詩・音楽・哲学・美術。</p></div></a>
+  <a class="room" href="commission.html"><div><span class="num">07</span><h3>Commission</h3><p>依頼について。</p></div></a>
+  <a class="room" href="contact.html"><div><span class="num">08</span><h3>Contact</h3><p>問い合わせ。</p></div></a>
+</nav>
+
 <div class="wrap">
-
-  <div class="philosophy">
-    <p>言葉になる前の震えが、そこにある。<br>色や線に置き換えていくことは、名前をつける前の存在を、そのまま留めておくこと。</p>
+  <div class="philosophy-teaser">
+    <p>美とは、定義される以前の関係のなかに現れる、意味の強度である。<br>完成ではなく、生成。所有ではなく、参与。</p>
+    <a class="btn" href="philosophy.html">Philosophyを読む</a>
   </div>
-
-  <section id="works">
-    <p class="eyebrow">Works</p>
-    <h2>震えの記録</h2>
-    <p class="lede">これまでに描いてきた作品の一部です。テーマは一貫して「まだ名のないもの」——感情、記憶、音、その手前にある震え。</p>
-    <div class="works-grid" style="margin-top:40px;">
-      <div class="work" style="background:conic-gradient(from 120deg, #1b2a3d, #3a5f6e, #b7d6c9, #1b2a3d);"></div>
-      <div class="work" style="background:radial-gradient(circle at 40% 40%, #f3d4d9, #e2a7b3 60%, #7a3b47);"></div>
-      <div class="work" style="background:linear-gradient(120deg, #1a0f14, #b85c6e 45%, #f3d4d9 70%, #1a0f14);"></div>
-      <div class="work" style="background:conic-gradient(from 40deg, #0b0b10, #2c3e50, #7fa8b8, #0b0b10);"></div>
-      <div class="work" style="background:radial-gradient(circle at 60% 30%, #123, #245, #0b0b10 70%);"></div>
-      <div class="work" style="background:linear-gradient(160deg, #3a2f1e, #b8925c, #f3e4d4);"></div>
-      <div class="work" style="background:linear-gradient(100deg, #cfd6dc, #8fa2ad 40%, #14141a 75%);"></div>
-    </div>
-    <p class="works-note">※ 上記はプレースホルダーです。実際の作品画像ファイル(例: works/01.jpg)に差し替えてください。</p>
-  </section>
-
-  <svg class="tremor" viewBox="0 0 1080 46" preserveAspectRatio="none">
-    <path id="tremorPath2" d="M0,23 C 90,36 180,10 270,23 C 360,36 450,10 540,23 C 630,36 720,10 810,23 C 900,36 990,10 1080,23" />
-  </svg>
-
-  <section id="services">
-    <p class="eyebrow">What I Do</p>
-    <h2 style="margin-bottom:48px;">出来ること</h2>
-
-    <div class="service">
-      <p class="service-name">album jacket</p>
-      <div class="service-body">
-        <h2 style="font-size:22px;">アルバムジャケット制作</h2>
-        <p class="lede">音の震えに、輪郭を。あなたの楽曲がまだ言葉になる前の感情——それを一枚の絵として描き起こします。楽曲を聴き込んだ上で、コンセプトから制作まで一貫して対応します。</p>
-      </div>
-    </div>
-
-    <div class="service">
-      <p class="service-name">works for sale</p>
-      <div class="service-body">
-        <h2 style="font-size:22px;">作品の販売(オリジナル/プリント)</h2>
-        <p class="lede">名のない震えを、手元に。ここに並ぶ作品は、一点物のオリジナルとプリントの両方でお求めいただけます。サイズ・素材のご相談も承ります。</p>
-      </div>
-    </div>
-
-    <div class="service">
-      <p class="service-name">commissions</p>
-      <div class="service-body">
-        <h2 style="font-size:22px;">オーダーメイド制作(個人・企業向け)</h2>
-        <p class="lede">あなたの存在を、描く。個人の記念作品から、企業のロゴ・空間装飾まで。ヒアリングを重ねながら、その人・その場所だけの一枚を仕上げます。</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact-panel">
-      <p class="eyebrow">Inquiry</p>
-      <h2>問い合わせ</h2>
-      <p class="lede">ジャケット制作、作品購入、オーダーメイドのご相談など、お気軽にご連絡ください。</p>
-
-      <form id="contactForm">
-        <div class="field">
-          <label for="name">お名前</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="field">
-          <label for="email">メールアドレス</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="field full">
-          <label for="type">ご相談内容</label>
-          <select id="type" name="type">
-            <option value="jacket">アルバムジャケット制作</option>
-            <option value="purchase">作品購入</option>
-            <option value="commission">オーダーメイド制作</option>
-            <option value="other">その他</option>
-          </select>
-        </div>
-        <div class="field full">
-          <label for="message">メッセージ</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit">送信する</button>
-        <p class="form-status" id="formStatus"></p>
-      </form>
-
-      <p class="direct-mail">直接メールする場合は <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a> まで。</p>
-    </div>
-  </section>
-
-  <footer>
-    <span>in — © <span id="year"></span></span>
-    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
-  </footer>
-
 </div>
 
+<div class="wrap">
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script src="assets/tremor.js"></script>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Tremor animation: continuously wobble the divider paths
-  function animateTremor(pathId, seed){
-    const path = document.getElementById(pathId);
-    if(!path) return;
-    let t = seed;
-    function frame(){
-      t += 0.015;
-      const pts = [];
-      const w = 1080, steps = 9;
-      for(let i=0;i<=steps;i++){
-        const x = (w/steps)*i;
-        const y = 23 + Math.sin(t + i*1.4)*11 + Math.sin(t*1.7 + i)*3;
-        pts.push([x,y]);
-      }
-      let d = `M${pts[0][0]},${pts[0][1]}`;
-      for(let i=1;i<pts.length;i++){
-        const [x0,y0] = pts[i-1];
-        const [x1,y1] = pts[i];
-        const cx = (x0+x1)/2;
-        d += ` Q${cx},${y0} ${x1},${y1}`;
-      }
-      path.setAttribute('d', d);
-      requestAnimationFrame(frame);
-    }
-    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      requestAnimationFrame(frame);
-    }
-  }
-  animateTremor('tremorPath1', 0);
-  animateTremor('tremorPath2', 3);
-
-  // Contact form: placeholder submit handler.
-  // Replace the fetch URL below with a Formspree endpoint or your own
-  // Vercel serverless function once one is set up.
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    status.textContent = 'まだ送信先が設定されていません。設定後にご案内します。';
-    status.classList.add('visible');
-  });
+  animateTremor('t1', 0);
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 </script>
-
 </body>
 </html>
