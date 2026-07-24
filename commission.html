@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commission — in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .service{
+    display:flex; gap:64px; align-items:flex-start; padding:52px 0;
+    border-top:1px solid var(--hairline);
+  }
+  .service:nth-child(even){ flex-direction:row-reverse; text-align:right; }
+  .service:nth-child(even) .lede{ margin-left:auto; }
+  .service-name{ font-family:var(--serif); font-size:13px; letter-spacing:.06em; color:var(--ink-soft); flex:0 0 160px; padding-top:4px; }
+  .service-body{ flex:1; }
+  @media (max-width:720px){
+    .service, .service:nth-child(even){ flex-direction:column; text-align:left; gap:16px; }
+    .service:nth-child(even) .lede{ margin-left:0; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html" class="active">Commission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="page-hero">
+    <p class="eyebrow">Commission</p>
+    <h1>依頼について</h1>
+    <p class="lede">ジャケット制作、作品の購入、オーダーメイド制作について。ご相談は<a href="contact.html" style="border-bottom:1px solid var(--rose);">Contact</a>からお願いします。</p>
+  </section>
+
+  <div class="service">
+    <p class="service-name">album jacket</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">アルバムジャケット制作</h2>
+      <p class="lede">音の震えに、輪郭を。あなたの楽曲がまだ言葉になる前の感情——それを一枚の絵として描き起こします。楽曲を聴き込んだ上で、コンセプトから制作まで一貫して対応します。</p>
+    </div>
+  </div>
+
+  <div class="service">
+    <p class="service-name">works for sale</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">作品の販売(オリジナル/プリント)</h2>
+      <p class="lede">名のない震えを、手元に。ここに並ぶ作品は、一点物のオリジナルとプリントの両方でお求めいただけます。サイズ・素材のご相談も承ります。</p>
+    </div>
+  </div>
+
+  <div class="service">
+    <p class="service-name">custom order</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">オーダーメイド制作(個人・企業向け)</h2>
+      <p class="lede">あなたの存在を、描く。個人の記念作品から、企業のロゴ・空間装飾まで。ヒアリングを重ねながら、その人・その場所だけの一枚を仕上げます。</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+</script>
+</body>
+</html>

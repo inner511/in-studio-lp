@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .process-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:40px;
+  }
+  .p-item{ position:relative; border-radius:2px; overflow:hidden; background:#e5e6e9; }
+  .p-item.tall{ grid-row: span 2; }
+  .p-item img, .p-item video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .p-tag{
+    position:absolute; left:10px; bottom:10px; font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; background: rgba(11,11,16,0.7); color:#fff;
+    padding:4px 10px; border-radius:999px;
+  }
+  @media (max-width: 760px){
+    .process-grid{ grid-template-columns: repeat(2,1fr); }
+    .p-item.tall{ grid-row: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html">Commission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="page-hero">
+    <p class="eyebrow">Process</p>
+    <h1>制作途中</h1>
+    <p class="lede">完成にいたる前の状態——写真、動画、ラフ、そして失敗作。ここでは、まだ意味が閉じていないものをそのまま置いています。</p>
+  </section>
+
+  <!-- 写真は images/, 動画は videos/ に配置し、下記のパスを差し替えてください。
+       種類ごとに p-tag のラベル(PHOTO / VIDEO / ROUGH / FAILED)を変更できます。 -->
+  <div class="process-grid">
+    <div class="p-item tall" style="background:linear-gradient(160deg,#1b2a3d,#3a5f6e);">
+      <span class="p-tag">Photo</span>
+    </div>
+    <div class="p-item" style="background:linear-gradient(120deg,#2c2c34,#54545e);">
+      <span class="p-tag">Rough</span>
+    </div>
+    <div class="p-item" style="background:linear-gradient(100deg,#3a2f1e,#b8925c);">
+      <span class="p-tag">Failed</span>
+    </div>
+    <div class="p-item" style="background:linear-gradient(140deg,#0b0b10,#2c3e50);">
+      <span class="p-tag">Video</span>
+    </div>
+    <div class="p-item tall" style="background:linear-gradient(160deg,#7a3b47,#f3d4d9);">
+      <span class="p-tag">Photo</span>
+    </div>
+    <div class="p-item" style="background:linear-gradient(120deg,#123,#245);">
+      <span class="p-tag">Rough</span>
+    </div>
+  </div>
+  <p style="margin-top:22px; font-size:12px; color:var(--ink-soft); opacity:.7;">※ 上記はプレースホルダーです。実際の写真・動画・ラフスケッチ・失敗作の画像/動画ファイルに差し替えてください。</p>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+</script>
+</body>
+</html>

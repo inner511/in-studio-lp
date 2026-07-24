@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .about-body p{ font-size:15px; line-height:2.1; color:var(--ink); max-width:620px; margin: 0 0 24px; }
+  .about-body p:first-of-type{ font-family:var(--serif); font-size:20px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html">Commission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap narrow">
+  <section class="page-hero">
+    <p class="eyebrow">About</p>
+    <h1>なぜ描くのか。</h1>
+  </section>
+
+  <section class="about-body" style="padding-top:0;">
+    <!-- TODO: 実際の文章に差し替えてください。ここでは構成のたたき台として仮の文章を置いています。 -->
+    <p>描くことは、答えを出すことではない。</p>
+    <p>まだ名前のない感情や記憶が、言葉になる前に、色や線としてこぼれ落ちてくる瞬間がある。それを掬い上げること——それが、自分にとって描くという行為の始まりです。</p>
+    <p>完成させることよりも、意味が生まれ続ける状態をそのまま保つことに関心があります。ノイズを消さない。揺らぎを直さない。未完のまま置いておくことが、その作品がまだ生きている証だと思っています。</p>
+    <p>見る人の知覚が加わることで、作品はそのつど違う姿を見せます。描くことは、固定された美を提示することではなく、意味が立ち上がる場をつくること。自分はその場に、最初に立ち会っているだけなのかもしれません。</p>
+  </section>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+</script>
+</body>
+</html>

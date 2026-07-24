@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophy — in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .phi-body p{
+    font-family: var(--serif);
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 2.3;
+    max-width: 640px;
+    margin: 0 0 40px;
+    color: var(--ink);
+  }
+  .phi-term{
+    display:inline-block; font-size:11px; letter-spacing:.1em;
+    color: var(--rose); border:1px solid var(--rose); border-radius:999px;
+    padding:3px 12px; margin: 0 0 40px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philosophy.html" class="active">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html">Commission</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap narrow">
+  <section class="page-hero">
+    <p class="eyebrow">Philosophy</p>
+    <h1>存在を、描く。</h1>
+    <p class="lede">世界観、そして「存在」という考え方について。この場所の実践は、post beauty という試論をもとにしています。</p>
+  </section>
+
+  <section class="phi-body" style="padding-top:0;">
+    <span class="phi-term">post beauty</span>
+
+    <p>美は、対象にあらかじめ備わった性質ではない。均衡や完成度として測り、判定できるものでもない。ここでは美を、ひとつの出来事として考えている。</p>
+
+    <p>意味は、ものの内側にあらかじめ閉じ込められているわけではない。作者の手の動き、素材の抵抗、見る人の知覚、そのときどきの文脈——それらが重なり合う場所で、意味はそのつど立ち上がる。だから同じ作品でも、見るたびに違う顔を見せる。観るという行為そのものが、作品の状態を更新していく。</p>
+
+    <p>完成とは、意味の運動が停止した状態を指す。post beautyは完成そのものを否定しない。ただ、完成を目的にはしない。未完であることは、何かが足りないことではなく、生成がまだ続いている証だと考えている。意味が閉じない限り、作品は生きている。</p>
+
+    <p>だから、ノイズは消さない。揺らぎは直さない。それはこの実践における、生命の条件そのものだから。</p>
+
+    <p>「存在」とは、定義される以前に、すでに働いているものだと思う。名前がつく前の震え。<em>in</em> という名前は、その手前にあるものへの、ささやかな指差しにすぎない。</p>
+
+    <p>美とは、定義される以前の関係のなかに現れる、意味の強度である。形ではなく出来事。所有ではなく参与。完成ではなく生成。その持続そのものを美として経験する試みとして、この場所はある。</p>
+  </section>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+</script>
+</body>
+</html>

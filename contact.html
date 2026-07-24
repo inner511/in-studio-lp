@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .contact-panel{ background: var(--field); color: var(--field-ink); border-radius:4px; padding:64px 48px; }
+  .contact-panel .eyebrow{ color: var(--rose); }
+  .contact-panel .lede{ color: rgba(243,244,246,.65); }
+  form{ margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1/-1; }
+  label{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(243,244,246,.5); }
+  input, select, textarea{
+    background:transparent; border:none; border-bottom:1px solid rgba(243,244,246,.25);
+    color:var(--field-ink); font-family:var(--sans); font-size:15px; padding:10px 2px; outline:none;
+    transition:border-color .3s;
+  }
+  input:focus, select:focus, textarea:focus{ border-color: var(--rose); }
+  select option{ color:#14141a; }
+  textarea{ resize:vertical; min-height:96px; }
+  button[type="submit"]{
+    grid-column:1/-1; justify-self:start; margin-top:8px; background:none;
+    border:1px solid rgba(243,244,246,.4); color:var(--field-ink); font-family:var(--sans);
+    font-size:13px; letter-spacing:.1em; padding:14px 32px; border-radius:999px; cursor:pointer;
+    transition:background .3s, color .3s, border-color .3s;
+  }
+  button[type="submit"]:hover{ background:var(--rose); border-color:var(--rose); color:#fff; }
+  .form-status{ grid-column:1/-1; font-size:13px; color:rgba(243,244,246,.7); display:none; }
+  .form-status.visible{ display:block; }
+  .direct-mail{ margin-top:28px; font-size:13px; color:rgba(243,244,246,.45); }
+  .direct-mail a{ color:rgba(243,244,246,.75); text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:620px){ form{ grid-template-columns:1fr; } .contact-panel{ padding:48px 24px; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">in</a>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="works.html">Works</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="journal.html">Journal</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="commission.html">Commission</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="page-hero">
+    <p class="eyebrow">Contact</p>
+    <h1>問い合わせ</h1>
+  </section>
+
+  <section class="contact-panel" style="margin-bottom:60px;">
+    <p class="lede">ジャケット制作、作品購入、オーダーメイドのご相談など、お気軽にご連絡ください。</p>
+
+    <form id="contactForm">
+      <div class="field">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field full">
+        <label for="type">ご相談内容</label>
+        <select id="type" name="type">
+          <option value="jacket">アルバムジャケット制作</option>
+          <option value="purchase">作品購入</option>
+          <option value="commission">オーダーメイド制作</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="message">メッセージ</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">送信する</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+
+    <p class="direct-mail">直接メールする場合は <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a> まで。</p>
+  </section>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = 'まだ送信先が設定されていません。設定後にご案内します。';
+    status.classList.add('visible');
+  });
+</script>
+</body>
+</html>
