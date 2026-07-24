@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>in — 存在を、描く。</title>
+<meta name="description" content="in / 存在を、描く。まだ名のない震え。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  /* ---- Hero ---- */
+  .hero{
+    color: var(--field-ink);
+    min-height: 86vh; display:flex; flex-direction:column;
+    justify-content:center; align-items:center; text-align:center;
+    padding: 80px 24px 60px; position:relative;
+  }
+  .hero .mark{ font-family:var(--serif); font-size: clamp(64px,14vw,132px); font-weight:500; margin:0 0 24px; }
+  .hero .line1{ font-family:var(--serif); font-size: clamp(22px,5vw,34px); margin:0 0 8px; }
+  .hero .line2{ font-size:14px; letter-spacing:.16em; color:rgba(243,238,228,.55); margin:0; }
+  .hero .scroll-cue{
+    position:absolute; bottom:36px; font-size:11px; letter-spacing:.2em;
+    color:rgba(243,238,228,.4); display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .scroll-cue .stem{ width:1px; height:30px; background:linear-gradient(rgba(243,238,228,.5),transparent); animation: drift 2.2s ease-in-out infinite; }
+  @keyframes drift{ 0%,100%{ transform:scaleY(1); opacity:.5; } 50%{ transform:scaleY(1.3); opacity:1; } }
+
+  /* ---- About ---- */
+  .about-body p{ font-size:15px; line-height:2.1; color:var(--ink); max-width:620px; margin:0 0 24px; }
+  .about-body p:first-of-type{ font-family:var(--serif); font-size:20px; }
+
+  /* ---- Philosophy ---- */
+  .phi-body p{ font-family:var(--serif); font-size:clamp(16px,2vw,19px); line-height:2.3; max-width:640px; margin:0 0 36px; color:var(--ink); }
+  .phi-term{ display:inline-block; font-size:11px; letter-spacing:.1em; color:var(--rose); border:1px solid var(--rose); border-radius:999px; padding:3px 12px; margin:0 0 36px; }
+
+  /* ---- Works ---- */
+  .works-list{ display:flex; flex-direction:column; }
+  .work-entry{ display:grid; grid-template-columns: 1.1fr 1fr; gap:44px; padding:52px 0; border-top:1px solid var(--hairline); align-items:center; }
+  .work-entry:nth-child(even){ direction: rtl; }
+  .work-entry:nth-child(even) > *{ direction: ltr; }
+  .work-entry .art{ aspect-ratio:4/5; border-radius:2px; overflow:hidden; }
+  .work-entry .art > div, .work-entry .art img{ width:100%; height:100%; object-fit:cover; }
+  .work-meta dl{ display:grid; grid-template-columns:88px 1fr; gap:8px 16px; font-size:13px; margin:0 0 18px; }
+  .work-meta dt{ color:var(--ink-soft); letter-spacing:.04em; }
+  .work-meta dd{ margin:0; }
+  .work-meta .desc{ font-size:14px; line-height:1.9; color:var(--ink); }
+  @media (max-width:720px){ .work-entry, .work-entry:nth-child(even){ grid-template-columns:1fr; gap:18px; direction:ltr; } }
+
+  /* ---- Commission ---- */
+  .service{ display:flex; gap:56px; align-items:flex-start; padding:44px 0; border-top:1px solid var(--hairline); }
+  .service:nth-child(even){ flex-direction:row-reverse; text-align:right; }
+  .service:nth-child(even) .lede{ margin-left:auto; }
+  .service-name{ font-family:var(--serif); font-size:13px; letter-spacing:.06em; color:var(--ink-soft); flex:0 0 150px; padding-top:4px; }
+  .service-body{ flex:1; }
+  @media (max-width:720px){ .service, .service:nth-child(even){ flex-direction:column; text-align:left; gap:14px; } .service:nth-child(even) .lede{ margin-left:0; } }
+
+  /* ---- Contact ---- */
+  .contact-panel{ color: var(--field-ink); border-radius:4px; padding:60px 44px; }
+  .contact-panel .eyebrow{ color: var(--rose); }
+  .contact-panel .lede{ color: rgba(243,238,228,.65); }
+  form{ margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field.full{ grid-column:1/-1; }
+  label{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(243,238,228,.5); }
+  input, select, textarea{
+    background:transparent; border:none; border-bottom:1px solid rgba(243,238,228,.25);
+    color:var(--field-ink); font-family:var(--sans); font-size:15px; padding:10px 2px; outline:none;
+    transition:border-color .3s;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--rose); }
+  select option{ color:#1b1a22; }
+  textarea{ resize:vertical; min-height:96px; }
+  button[type="submit"]{
+    grid-column:1/-1; justify-self:start; margin-top:8px; background:none;
+    border:1px solid rgba(243,238,228,.4); color:var(--field-ink); font-family:var(--sans);
+    font-size:13px; letter-spacing:.1em; padding:14px 32px; border-radius:999px; cursor:pointer;
+    transition:background .3s, color .3s, border-color .3s;
+  }
+  button[type="submit"]:hover{ background:var(--rose); border-color:var(--rose); color:#fff; }
+  .form-status{ grid-column:1/-1; font-size:13px; color:rgba(243,238,228,.7); display:none; }
+  .form-status.visible{ display:block; }
+  .direct-mail{ margin-top:26px; font-size:13px; color:rgba(243,238,228,.45); }
+  .direct-mail a{ color:rgba(243,238,228,.75); text-decoration:underline; text-underline-offset:3px; }
+  @media (max-width:620px){ form{ grid-template-columns:1fr; } .contact-panel{ padding:44px 22px; } }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="#top">in</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#commission">Commission</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero field-breathe" id="top">
+  <p class="mark">in</p>
+  <p class="line1">存在を、描く。</p>
+  <p class="line2">まだ名のない震え。</p>
+  <div class="scroll-cue"><span>SCROLL</span><span class="stem"></span></div>
+</section>
+
+<svg class="tremor" viewBox="0 0 1080 40" preserveAspectRatio="none">
+  <path id="t1" d="M0,20 C90,8 180,32 270,20 C360,8 450,32 540,20 C630,8 720,32 810,20 C900,8 990,32 1080,20"></path>
+</svg>
+
+<div class="wrap narrow">
+  <section class="page-hero" id="about">
+    <p class="eyebrow">About</p>
+    <h1>なぜ描くのか。</h1>
+  </section>
+  <section class="about-body" style="padding-top:0;">
+    <!-- ここは構成のたたき台です。実際の言葉に差し替えてください。 -->
+    <p>気づいたときには、もう手が動いていた。</p>
+    <p>言葉にする前に、感情や記憶が色や線としてこぼれ落ちる瞬間がある。それを追いかけることが、自分にとっての制作の始まりです。</p>
+    <p>キャンバス、紙、デジタル——素材はそのつど変わりますが、求めているものは変わりません。まだ名前のついていない震えを、なるべくそのままの形で留めておくこと。整えすぎないこと。</p>
+    <p>上手く描くことよりも、正直に描くことを選んできました。技術は後からついてくるものだと思っています。今日も、まだ途中です。</p>
+  </section>
+</div>
+
+<svg class="tremor" viewBox="0 0 1080 40" preserveAspectRatio="none">
+  <path id="t2" d="M0,20 C90,32 180,8 270,20 C360,32 450,8 540,20 C630,32 720,8 810,20 C900,32 990,8 1080,20"></path>
+</svg>
+
+<div class="wrap narrow">
+  <section class="page-hero" id="philosophy">
+    <p class="eyebrow">Philosophy</p>
+    <h2>post beauty</h2>
+    <p class="lede">世界観、そして「存在」という考え方について。</p>
+  </section>
+  <section class="phi-body" style="padding-top:0;">
+    <span class="phi-term">post beauty</span>
+    <p>美は、対象にあらかじめ備わった性質ではない。均衡や完成度として測り、判定できるものでもない。ここでは美を、ひとつの出来事として考えている。</p>
+    <p>意味は、ものの内側にあらかじめ閉じ込められているわけではない。作者の手の動き、素材の抵抗、見る人の知覚、そのときどきの文脈——それらが重なり合う場所で、意味はそのつど立ち上がる。だから同じ作品でも、見るたびに違う顔を見せる。観るという行為そのものが、作品の状態を更新していく。</p>
+    <p>完成とは、意味の運動が停止した状態を指す。post beautyは完成そのものを否定しない。ただ、完成を目的にはしない。未完であることは、何かが足りないことではなく、生成がまだ続いている証だと考えている。意味が閉じない限り、作品は生きている。</p>
+    <p>だから、ノイズは消さない。揺らぎは直さない。それはこの実践における、生命の条件そのものだから。</p>
+    <p>「存在」とは、定義される以前に、すでに働いているものだと思う。名前がつく前の震え。<em>in</em> という名前は、その手前にあるものへの、ささやかな指差しにすぎない。</p>
+    <p>美とは、定義される以前の関係のなかに現れる、意味の強度である。形ではなく出来事。所有ではなく参与。完成ではなく生成。その持続そのものを美として経験する試みとして、この場所はある。</p>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="page-hero" id="works">
+    <p class="eyebrow">Works</p>
+    <h1>作品</h1>
+    <p class="lede">これまでに描いてきた作品。1点ずつ、制作年・素材・サイズ・制作時間と、短い言葉を添えています。</p>
+  </section>
+
+  <!-- 以下は構成のサンプルです。1作品につき .work-entry を1ブロック複製し、
+       画像パス・年・素材・サイズ・制作時間・文章を差し替えてください。 -->
+  <div class="works-list">
+    <article class="work-entry">
+      <div class="art"><img src="works/01.jpg" alt="作品タイトルをここに" loading="lazy"></div>
+      <div class="work-meta">
+        <span class="cat-no">No. 01</span>
+        <h3>作品タイトル</h3>
+        <dl>
+          <dt>制作年</dt><dd>2026</dd>
+          <dt>素材</dt><dd>キャンバスにアクリル</dd>
+          <dt>サイズ</dt><dd>727 × 606 mm</dd>
+          <dt>制作時間</dt><dd>約18時間</dd>
+        </dl>
+        <p class="desc">まだ言葉になる前の震えを、そのまま留めておいた一枚。</p>
+      </div>
+    </article>
+
+    <article class="work-entry">
+      <div class="art"><img src="works/02.jpg" alt="作品タイトルをここに" loading="lazy"></div>
+      <div class="work-meta">
+        <span class="cat-no">No. 02</span>
+        <h3>作品タイトル</h3>
+        <dl>
+          <dt>制作年</dt><dd>2026</dd>
+          <dt>素材</dt><dd>デジタル</dd>
+          <dt>サイズ</dt><dd>3000 × 3000 px</dd>
+          <dt>制作時間</dt><dd>約6時間</dd>
+        </dl>
+        <p class="desc">音を聴きながら、輪郭が生まれる瞬間を追いかけた。</p>
+      </div>
+    </article>
+
+    <article class="work-entry">
+      <div class="art"><img src="works/03.jpg" alt="作品タイトルをここに" loading="lazy"></div>
+      <div class="work-meta">
+        <span class="cat-no">No. 03</span>
+        <h3>作品タイトル</h3>
+        <dl>
+          <dt>制作年</dt><dd>2025</dd>
+          <dt>素材</dt><dd>紙にインク</dd>
+          <dt>サイズ</dt><dd>420 × 297 mm</dd>
+          <dt>制作時間</dt><dd>約4時間</dd>
+        </dl>
+        <p class="desc">未完のまま置いておくことを、初めて選べた作品。</p>
+      </div>
+    </article>
+  </div>
+  <p style="margin-top:8px; font-size:12px; color:var(--ink-soft); opacity:.7;">※ 画像はプレースホルダーです。実際の作品ファイルに差し替えてください。</p>
+</div>
+
+<div class="wrap">
+  <section class="page-hero" id="commission">
+    <p class="eyebrow">Commission</p>
+    <h1>依頼について</h1>
+    <p class="lede">ジャケット制作、作品の購入、オーダーメイド制作について。ご相談は<a href="#contact" style="border-bottom:1px solid var(--rose);">Contact</a>からお願いします。</p>
+  </section>
+
+  <div class="service">
+    <p class="service-name">album jacket</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">アルバムジャケット制作</h2>
+      <p class="lede">音の震えに、輪郭を。あなたの楽曲がまだ言葉になる前の感情——それを一枚の絵として描き起こします。楽曲を聴き込んだ上で、コンセプトから制作まで一貫して対応します。</p>
+    </div>
+  </div>
+  <div class="service">
+    <p class="service-name">works for sale</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">作品の販売(オリジナル/プリント)</h2>
+      <p class="lede">名のない震えを、手元に。ここに並ぶ作品は、一点物のオリジナルとプリントの両方でお求めいただけます。サイズ・素材のご相談も承ります。</p>
+    </div>
+  </div>
+  <div class="service">
+    <p class="service-name">custom order</p>
+    <div class="service-body">
+      <h2 style="font-size:22px;">オーダーメイド制作(個人・企業向け)</h2>
+      <p class="lede">あなたの存在を、描く。個人の記念作品から、企業のロゴ・空間装飾まで。ヒアリングを重ねながら、その人・その場所だけの一枚を仕上げます。</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="page-hero" id="contact">
+    <p class="eyebrow">Contact</p>
+    <h1>問い合わせ</h1>
+  </section>
+
+  <section class="contact-panel field-breathe" style="margin-bottom:60px;">
+    <p class="lede">ジャケット制作、作品購入、オーダーメイドのご相談など、お気軽にご連絡ください。</p>
+    <form id="contactForm">
+      <div class="field">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="field full">
+        <label for="type">ご相談内容</label>
+        <select id="type" name="type">
+          <option value="jacket">アルバムジャケット制作</option>
+          <option value="purchase">作品購入</option>
+          <option value="commission">オーダーメイド制作</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="message">メッセージ</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit">送信する</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+    <p class="direct-mail">直接メールする場合は <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a> まで。</p>
+  </section>
+
+  <footer class="site-footer">
+    <span>in — © <span class="year"></span></span>
+    <a href="mailto:thisthatzero@gmail.com">thisthatzero@gmail.com</a>
+  </footer>
+</div>
+
+<script src="assets/tremor.js"></script>
+<script>
+  animateTremor('t1', 0);
+  animateTremor('t2', 3);
+  document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.textContent = 'まだ送信先が設定されていません。設定後にご案内します。';
+    status.classList.add('visible');
+  });
+
+  // Scroll-spy: highlight the current section's nav link
+  const navLinks = document.querySelectorAll('.site-nav a[href^="#"]');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.site-nav a[href="#' + entry.target.id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting) navLinks.forEach(l => l.classList.remove('active'));
+      if(entry.isIntersecting) link.classList.add('active');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+</script>
+<script src="assets/reveal.js"></script>
+</body>
+</html>
