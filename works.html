@@ -14,6 +14,8 @@
     display:grid; grid-template-columns: 1.1fr 1fr; gap: 48px;
     padding: 56px 0; border-top:1px solid var(--hairline); align-items:center;
   }
+  .work-entry:nth-child(even){ direction: rtl; }
+  .work-entry:nth-child(even) > *{ direction: ltr; }
   .work-entry .art{
     aspect-ratio: 4/5; border-radius:2px; overflow:hidden;
   }
@@ -27,7 +29,7 @@
   .work-meta .desc{ font-size:14px; line-height:1.9; color:var(--ink); }
 
   @media (max-width: 720px){
-    .work-entry{ grid-template-columns: 1fr; gap: 20px; }
+    .work-entry, .work-entry:nth-child(even){ grid-template-columns: 1fr; gap: 20px; direction: ltr; }
   }
 </style>
 </head>
@@ -65,6 +67,7 @@
         <img src="works/01.jpg" alt="作品タイトルをここに" loading="lazy">
       </div>
       <div class="work-meta">
+        <span class="cat-no">No. 01</span>
         <h3>作品タイトル</h3>
         <dl>
           <dt>制作年</dt><dd>2026</dd>
@@ -81,6 +84,7 @@
         <img src="works/02.jpg" alt="作品タイトルをここに" loading="lazy">
       </div>
       <div class="work-meta">
+        <span class="cat-no">No. 02</span>
         <h3>作品タイトル</h3>
         <dl>
           <dt>制作年</dt><dd>2026</dd>
@@ -97,6 +101,7 @@
         <img src="works/03.jpg" alt="作品タイトルをここに" loading="lazy">
       </div>
       <div class="work-meta">
+        <span class="cat-no">No. 03</span>
         <h3>作品タイトル</h3>
         <dl>
           <dt>制作年</dt><dd>2025</dd>
@@ -119,5 +124,6 @@
 <script>
   document.querySelectorAll('.year').forEach(e=>e.textContent=new Date().getFullYear());
 </script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>
