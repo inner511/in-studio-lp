@@ -4,11 +4,8 @@
 // load, elements simply render in their normal, fully-visible state.
 document.addEventListener('DOMContentLoaded', function(){
   const selectors = [
-    '.page-hero h1', '.page-hero .lede',
-    '.work-entry', '.service',
-    '.phi-body p', '.phi-term', '.about-body p',
-    '.philosophy-teaser p', '.philosophy-teaser .btn',
-    '.sw-item', '.about-teaser', '.section-head'
+    '.lead-row', '.work', '.phi-quote', '.phi-toggle',
+    '.about-body p', '.commission-row'
   ];
   const targets = document.querySelectorAll(selectors.join(','));
   if(!targets.length) return;

@@ -80,10 +80,6 @@ h3{ font-size: 20px; }
 .tremor path{ fill:none; stroke: var(--line); stroke-width:1.4; opacity:.5; }
 .tremor.field path{ stroke: var(--field-ink); opacity:.35; }
 
-/* ---------- Page hero (small, for interior pages) ---------- */
-.page-hero{ padding: 72px 0 24px; }
-.page-hero .eyebrow{ margin-bottom: 14px; }
-
 /* ---------- Catalogue number label ---------- */
 .cat-no{
   font-family: var(--serif); font-size: 12px; color: var(--rose);
